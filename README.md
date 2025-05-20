@@ -1,30 +1,29 @@
-DEVELOPING AN ARCHITECTURE FOR A 3 TIER WEB APPLICATION ON 
-AMAZON WEB SERVICES 
-BY 
-GERTRUDE CHICHI 
-APRIL 25, 2025 
+                                                DEVELOPING AN ARCHITECTURE FOR A 3 TIER WEB 
+                                                       APPLICATION ON AMAZON WEB SERVICES 
+                                                                     BY 
+                                                              GERTRUDE CHICHI 
+                                                               APRIL 25, 2025 
 DECLARATION 
 I affirm that this document represents the results of my findings in exploring AWS resources 
 by embarking on a hands-on project in architecting scalable and highly available infrastructure 
 on AWS. This work is authentic and was developed after thoroughly referencing AWS 
 documentation and reviewing existing solutions for building cloud infrastructure during my 
 training session with Azubi Africa. 
-1 
- 
- 
+  
 INTRODUCTION 
-As a solutions architect there is a need to build a robust architecture by considering factors such 
-as elasticity, availability and security. This hands-on lab work focused on building a robust 
-AWS infrastructure that can host applications from clients and make users satisfied with the 
-application hosted in the cloud. 
+As a solutions architect there is a need to build a robust architecture by considering factors such as elasticity, availability and security. This hands-on lab work focused on building a robust AWS infrastructure that can host applications from clients and make users satisfied with the application hosted in the cloud. 
+
 AWS 3-Tier Application Design: Web, App, and Database Layer 
-2 
-AWS THREE (3) TIER APPLICATION- STEP BY STEP CONSOLE 
-CONFIGURATION 
+ 
+
+
+
+
+AWS THREE (3) TIER APPLICATION- STEP BY STEP CONSOLE CONFIGURATION 
+
 Virtual Private Cloud (VPC) 
 The VPC ((3_Tier-VPC) was made up of two availability zones in the us-east-1 region. The 
-subnets were built in the us-east-1a and us-east-1b availability zones. Each availability zone 
-had a public subnet and two private subnets. In all, the VPC comprised of six subnets in the 
+subnets were built in the us-east-1a and us-east-1b availability zones. Each availability zone had a public subnet and two private subnets. In all, the VPC comprised of six subnets in the 
 two availability zones.  
 The infrastructure utilized two route tables. One of the route table (3_Tier-rtb-public) 
 connected the public subnets to the internet gateway. For the private subnets which were four 
