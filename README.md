@@ -1,8 +1,4 @@
-                                                DEVELOPING AN ARCHITECTURE FOR A 3 TIER WEB 
-                                                       APPLICATION ON AMAZON WEB SERVICES 
-                                                                     BY 
-                                                              GERTRUDE CHICHI 
-                                                               APRIL 25, 2025 
+
 DECLARATION 
 I affirm that this document represents the results of my findings in exploring AWS resources 
 by embarking on a hands-on project in architecting scalable and highly available infrastructure 
