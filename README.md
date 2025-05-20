@@ -1,1 +1,1 @@
-This is my first major project in my journey as a Cloud Practitioner and Solutions Architect, utilizing AWS resources to build cloud solutions. This documentation showcases my work in architecting a 3-tier infrastructure using AWS services, highlighting my hands-on experience and skills in designing and implementing scalable cloud solutions.
+[View Project Report](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/main/Three_Tier_Application_Deployment.pdf )
