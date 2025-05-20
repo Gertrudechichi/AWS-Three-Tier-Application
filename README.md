@@ -14,16 +14,6 @@ As a solutions architect there is a need to build a robust architecture by consi
 
 AWS 3-Tier Application Design: Web, App, and Database Layer 
 
-
-
-
-
-
- 
-
-
-
-
 AWS THREE (3) TIER APPLICATION- STEP BY STEP CONSOLE CONFIGURATION 
 
 Virtual Private Cloud (VPC) 
@@ -35,22 +25,6 @@ The infrastructure utilized two route tables. One of the route table (3_Tier-rtb
 subnets so that any resource provisioned in that subnet will automatically have public ipv4 address. 
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202123.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 WEB-TIER 
 The web tier acts as the public-facing interface, serving content to users. 
@@ -62,79 +36,15 @@ The instance type that was used was t2.micro and it was free tier eligible .In t
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202207.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 Through the websever configuration, I also honed my skill in hosting a static website leveraging AWS EC2 instance. 
 
 Security group: The security group for the ec2 instances in the public subnet was configured to allow HTTPS and HTTP from anywhere and SSH from my IP only which allowed only my IP address to access the instance and run updates and other installation. 
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202224.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Autosacling group: For the autoscaling group. The webtemplate served as a reference which allowed the autoscaling group to launch instances.The desired capacity of the instances to be launched by the autoscaling group was 2, the minimum desired capacity was,1 and the maximum desired capacity was 2 as well. 
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202245.png)
-
-
-
-
-
-
-
-
-
-
-
-
 
 Load balancer: Ec2 instances were provsioned in the two availability zones of the public subnets when the load balancer directed traffic from the internet to the target group . The routetable ensured that traffic from the internet was routed to the public subnets. 
 
@@ -143,92 +53,15 @@ directed to the load balancer because the security group of the load balancer al
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202259.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 After hosting a webserver in one of the provisoned ec2 instance from the autoscaling group, I copied the public IPV4 address of the EC2 instances and pasted it in the web browser where I confimed it was accessible by the public . 
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202312.png)
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202325.png)
 
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 To confim that the aspect of the security group of the web server  that  allowed inbound traffic of ssh from my IP was applied to the autoscaling group I connected to the EC2 instance using my IP on a ubuntu terminal and it was successful. 
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202400.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 To conclude, for the web tier, I was able to successfully provision EC2 instances using the application load balancer, autoscaling group with the necessary security groups attached to the load balancer and the launch template which allowed HTTP, HTTPS from the internet and SSH from my IP. 
 
@@ -240,17 +73,6 @@ Launch template: I also configured a launch template for the provisioning of EC2
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202418.png)
 
-
-
-
-
-
-
-
-
-
-
-
 The major difference between the webserver instances and the app server instances lied in the security groups that was attached to each of them. The load balancer for the app server was also an internal load balancer directing traffic within the VPC. 
 To ensure that the instances were not publicly available. The app tier instances were provisioned in the private subnet allowing only inbound traffic from the instances in the public subnet (security group attached to the web tier instance). An internal load balancer which was not internet facing was created. The purpose of the internal load balancer was to distribute traffic within the VPC. The internal load balancer listened to port 80 of the app server target 
 group. 
@@ -258,23 +80,6 @@ group.
 The instances in the app tier were launched using the autoscaling principle and an internal load balancer. The web server security group was configured send ICMP echo requests to the app servers and the app servers responded to the ICMP echo requests. Due to this, I could confirm that there was a secure connection between the instances in the webserver and the instance in the app tier (all resided in the VPC).
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202430.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 However, when the app server instances were in service, I was unable to SSH into the app server to run administrative tasks and confirm if mysql client  has been installed  in the app server  even though I could verify that there was a secure connection between the app server instances and the instances in the web tier confirming the availability of app instances. 
 
@@ -284,66 +89,6 @@ To rectify the issue, I created a role with the SSM Manged instance core permiss
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202451.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 DATABASE-TIER 
 The database served as the server to the app servers 
 
@@ -354,40 +99,8 @@ This client-server model between the app servers and the database instance facil
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202514.png)
 
-
-
 Database Subnet Group: A database subnet group was created to isolate the database instances within the private subnet. For the creation of the database, MySQL engine was selected because it was compactible with the MySQL client that was installed on the app server. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
 I successfully connected to the app server using the Session manager. The endpoint of the database was used to connect to the MySQL client successfully. 
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202526.png)
@@ -396,53 +109,6 @@ I successfully connected to the app server using the Session manager. The endpoi
 
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/9f2905fb5023a71af036a0a78a1f550de55a7a82/Screenshot%202025-05-20%20202547.png)
 
- 
- 
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 CHALLENGES 
 
 Implementing a secure 3-tier architecture posed significant challenges, including configuring security groups to balance access and security, ensuring seamless communication between tiers, restricting disrupting functionality administrative access to specific IP addresses without disrupting functionality 
