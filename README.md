@@ -6,8 +6,14 @@ by embarking on a hands-on project in architecting scalable and highly available
 on AWS. This work is authentic and was developed after thoroughly referencing AWS 
 documentation and reviewing existing solutions for building cloud infrastructure during my 
 training session with Azubi Africa. 
+
+
+
   
 INTRODUCTION 
+
+
+
 ![image alt](https://github.com/Gertrudechichi/AWS-Three-Tier-Application/blob/f66f4290ffcedce09a582f02d5da45b19d7091eb/Screenshot%202025-05-20%20202058.png)
 
 As a solutions architect there is a need to build a robust architecture by considering factors such as elasticity, availability and security. This hands-on lab work focused on building a robust AWS infrastructure that can host applications from clients and make users satisfied with the application hosted in the cloud. 
